@@ -76,6 +76,9 @@ IP_Tools(){
 IP_WhoIs(){
 	ip := IO_QuickGrabSelection()
 	ip := IP_CheckIPPrompt(ip)
+	if ErrorLevel{
+		Exit
+	}
 	url := "http://whois.arin.net/rest/ip/" . ip . ".txt"
 	; Example: Download text to a variable:
 	whr := ComObjCreate("WinHttp.WinHttpRequest.5.1")
